@@ -6,7 +6,8 @@ import { AddDataComponent } from './add-data/add-data.component';
 const routes: Routes = [
   {path: '', redirectTo: '', pathMatch: 'full'},
   {path: 'addData', component: AddDataComponent},
-  {path: 'showData', component: ShowDataComponent}
+  {path: 'showData', component: ShowDataComponent},
+  {path: 'editData/:id', component: AddDataComponent}
 ];
 
 @NgModule({

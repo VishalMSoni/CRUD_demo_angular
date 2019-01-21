@@ -1,0 +1,25 @@
+{
+    "jsonData": [
+        {
+            "name": "vishal",
+            "email": "vms@gmail.com",
+            "phoneNum": 9429707486,
+            "city": "Rajkot",
+            "pincode": 360003
+        },
+        {
+            "name": "vishal1",
+            "email": "vms1@gmail.com",
+            "phoneNum": 9429707486,
+            "city": "Rajkot1",
+            "pincode": 360003
+        },
+        {
+            "name": "vishal2",
+            "email": "vms2@gmail.com",
+            "phoneNum": 9429707486,
+            "city": "Rajkot2",
+            "pincode": 360003
+        }
+    ]
+}

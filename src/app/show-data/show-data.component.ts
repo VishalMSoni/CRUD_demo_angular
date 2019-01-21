@@ -17,16 +17,11 @@ export class ShowDataComponent implements OnInit {
     this.parentData = this.dataService.getData();
   }
 
-  onUpdate(data){
-    this.updateSelected = data;
-    console.log(data);
-  }
-
-  updateDone(){
-    this.updateSelected = null;
+  onUpdate(i){
+    this.router.navigate(['editData', i]); 
   }
 
   onDelete(i){
-    this.parentData.splice(i, 1)
+    this.dataService.deleteData(i);
   }
 }
