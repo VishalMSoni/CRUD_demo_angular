@@ -1,9 +1,12 @@
 export class AddUser {
     constructor(
-        public name: string,
-        public email: string,
-        public phoneNum: number,
+        public id: number,
+        public fname: string,
+        public lname: string,        
+        public bdate: Date,        
+        public phoneNum: string,
         public city: string,
+        public email: string,
         public pincode: number
     ) { }    
 }

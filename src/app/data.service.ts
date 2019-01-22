@@ -1,31 +1,33 @@
 import { Injectable } from '@angular/core';
-import { dataArray, AddUser } from './add-user';
-
-// import { HttpClient } from '@angular/common/http';
-// import { Observable } from 'rxjs';
+import { AddUser } from './add-user';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
 })
 export class DataService {
 
-    constructor() { }
-    // url = "http://localhost:3000/jsonData";
+    url = "http://localhost:3000/jsonData";
+    constructor(private httpClient: HttpClient) { }
 
-    data = [];
-
-    // public CreateUser(user: AddUser): Observable<void> {
-    //     return this.http.post<void>(this.url, user);
-    // }
-    // public getUsers(): Observable<AddUser[]> {
-    //     return this.http.get<AddUser[]>(this.url);
-    // }
-
-    getData() {
-        return dataArray;
+    createUsersData(user: AddUser): Observable<void> {
+        return this.httpClient.post<void>(this.url, user);
     }
 
-    deleteData(i) {
-        dataArray.splice(i, 1);
+    getUsersData(): Observable<AddUser[]> {
+        return this.httpClient.get<AddUser[]>(this.url);
+    }
+
+    getUserByID(id: number): Observable<AddUser> {
+        return this.httpClient.get<AddUser>(`${this.url}/${id}`);
+    }
+
+    deleteUserByID(id: number): Observable<void> {
+        return this.httpClient.delete<void>(`${this.url}/${id}`);
+    }
+
+    updateUserByID(user: AddUser, id: number) {
+        return this.httpClient.put(this.url + '/' + id, user);
     }
 }

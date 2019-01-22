@@ -1,44 +1,65 @@
-<div class="container mb-6"><br>
-    <form #userForm="ngForm" autocomplete="off" (ngSubmit)="onSubmit(userForm)" novalidate>
-        <div class="form-group">
-            <label>Name</label>
-            <input type="text" #userName="ngModel" [class.is-invalid]="userName.invalid && userName.touched" class="form-control"
-                [(ngModel)]="userModel.name" name="name" required>
-            <small class="text-danger" [class.d-none]="userName.valid || userName.untouched">Name is Required !!!</small>
+<div class="container"><br>
+    <form #userForm="ngForm" autocomplete="off" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label>First Name</label>
+                <input type="text" #userFName="ngModel" [class.is-invalid]="userFName.invalid && userFName.touched" class="form-control"
+                    [(ngModel)]="userModel.fname" name="fname" required>
+                <small class="text-danger" [class.d-none]="userFName.valid || userFName.untouched">Name is Required
+                    !!!</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Last Name</label>
+                <input type="text" #userLName="ngModel" [class.is-invalid]="userLName.invalid && userLName.touched" class="form-control"
+                    [(ngModel)]="userModel.lname" name="lname" required>
+                <small class="text-danger" [class.d-none]="userLName.valid || userLName.untouched">Name is Required
+                    !!!</small>
+            </div>
         </div>
 
-        <div class="form-group">
-            <label>Email</label>
-            <input type="email" #userEmail="ngModel" [class.is-invalid]="userEmail.invalid && userEmail.touched" class="form-control"
-                [(ngModel)]="userModel.email" name="email" required>
-            <small class="text-danger" [class.d-none]="userEmail.valid || userEmail.untouched">Email is Required!!!</small>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label>Birth Date</label>
+                <input type="date" #userBDate="ngModel" [class.is-invalid]="userBDate.invalid && userBDate.touched"
+                    class="form-control" [(ngModel)]="userModel.bdate" name="bdate" required>
+                <small class="text-danger" [class.d-none]="userBDate.valid || userBDate.untouched">Birth Date is Required!!!</small>
+            </div>
+            
+            <div class="form-group col-md-6">
+                <label>Phone number</label>
+                <input appCustomMobileNumber type="text" #userPhoneNum="ngModel" pattern="^\d{16}$" class="form-control" [(ngModel)]="userModel.phoneNum" name="phoneNum" required>
+                <!-- <small class="text-danger" [class.d-none]="userPhoneNum.valid || userPhoneNum.untouched">Proper Phone Number is Required !!!</small> -->
+            </div>
         </div>
-
-        <div class="form-group">
-            <label>Phone number</label>
-            <input type="number" #userPhoneNum="ngModel" pattern="^\d{10}$" [class.is-invalid]="userPhoneNum.invalid && userPhoneNum.touched"
-                class="form-control" [(ngModel)]="userModel.phoneNum" name="phoneNum">
-            <small class="text-danger" [class.d-none]="userPhoneNum.valid || userPhoneNum.untouched">Phone Number is
-                Required
-                !!!</small>
-        </div>
-
+        
         <div class="form-group">
             <label>City</label>
             <input type="text" #userCity="ngModel" [class.is-invalid]="userCity.invalid && userCity.touched" class="form-control"
                 [(ngModel)]="userModel.city" name="city" required>
-            <small class="text-danger" [class.d-none]="userCity.valid || userCity.untouched">City is Required !!!</small>
-        </div>
-
-        <div class="form-group">
-            <label>Pincode</label>
-            <input type="number" #userPincode="ngModel" pattern="^\d{6}$" [class.is-invalid]="userPincode.invalid && userPincode.touched"
-                class="form-control" [(ngModel)]="userModel.pincode" name="pincode">
-            <small class="text-danger" [class.d-none]="userPincode.valid || userPincode.untouched">Pincode is Required
+            <small class="text-danger" [class.d-none]="userCity.valid || userCity.untouched">City is Required
                 !!!</small>
         </div>
 
-        <button [disabled]="userForm.form.invalid" class="btn btn-primary" type="submit">Submit Data</button>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label>Email</label>
+                <input type="email" #userEmail="ngModel" [class.is-invalid]="userEmail.invalid && userEmail.touched"
+                    class="form-control" [(ngModel)]="userModel.email" name="email" required>
+                <small class="text-danger" [class.d-none]="userEmail.valid || userEmail.untouched">Email is
+                    Required !!!</small>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>Pincode</label>
+                <input type="number" #userPincode="ngModel" pattern="^\d{6}$" [class.is-invalid]="userPincode.invalid && userPincode.touched"
+                    class="form-control" [(ngModel)]="userModel.pincode" name="pincode" required>
+                <small class="text-danger" [class.d-none]="userPincode.valid || userPincode.untouched">Pincode is
+                    Required
+                    !!!</small>
+            </div>
+        </div>
+        <!-- [disabled]="userForm.form.invalid" -->
+        <button class="btn btn-primary" type="submit">Submit Data</button>
     </form>
 </div>
 <br>

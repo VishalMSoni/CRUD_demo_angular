@@ -1,37 +1,61 @@
 <div class="container">
-    <table class="table">
+    <nav class="navbar">
+        <div class="row">
+            <div class="col-md-4">
+                <label style="font-size:20px;">Search it:</label>
+            </div>
+            <div class="col-md-6">
+                <input class="form-control" type="text" name="search" [(ngModel)]="filter">
+            </div>
+        </div>
+    </nav><br>
+    <table class="table table-bordered">
         <thead>
             <tr>
-                <th scope="col">No.</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
+                <th scope="col" (click)="sort('no')">
+                    No.
+                    <span class="glyphicon sort-icon" *ngIf="key =='no'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th scope="col" (click)="sort('fname')">
+                    First Name
+                    <span class="glyphicon sort-icon" *ngIf="key =='fname'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th scope="col" (click)="sort('lname')">
+                    Last Name
+                    <span class="glyphicon sort-icon" *ngIf="key =='lname'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th scope="col" (click)="sort('bdate')">
+                    Birth Date
+                    <span class="glyphicon sort-icon" *ngIf="key =='bdate'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
                 <th scope="col">Phone Number</th>
                 <th scope="col">City</th>
+                <th scope="col">Email</th>
                 <th scope="col">Pincode</th>
             </tr>
         </thead>
         <tbody>
             <br>
-            <tr *ngFor="let data of parentData; index as i">
-                <div *ngIf="i!=0; then firstBlock; else emptyBlock"></div>
-                <ng-template #firstBlock>
-                    <th scope="row">{{i}}</th>
-                    <td>{{data.name}}</td>
-                    <td>{{data.email}}</td>
-                    <td>{{data.phoneNum}}</td>
-                    <td>{{data.city}}</td>
-                    <td>{{data.pincode}}</td>
-                    <button class="btn btn-success" (click)="onUpdate(i)">
-                        Update Data
-                    </button>
-                    &nbsp;&nbsp;&nbsp;
-                    <button class="btn btn-danger" (click)="onDelete(i)">
-                        Delete
-                    </button>
-                </ng-template>
-                <ng-template #emptyBlock></ng-template>
+            <tr *ngFor="let data of parentData | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: 5, currentPage: p }; index as i">
+                <th scope="row">{{data.id}}</th>
+                <td>{{data.fname}}</td>
+                <td>{{data.lname}}</td>
+                <td>{{data.bdate}}</td>
+                <td>{{data.phoneNum}}</td>
+                <td>{{data.city}}</td>
+                <td>{{data.email}}</td>
+                <td>{{data.pincode}}</td>
+                &nbsp;&nbsp;&nbsp;
+                <button class="btn btn-success" (click)="onUpdate(data.id)">
+                    Update Data
+                </button>
+                &nbsp;&nbsp;&nbsp;
+                <button class="btn btn-danger" (click)="onDelete(data.id)">
+                    Delete
+                </button>
             </tr>
         </tbody>
     </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
     <br>
 </div>

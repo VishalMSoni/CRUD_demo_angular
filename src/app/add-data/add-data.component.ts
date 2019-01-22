@@ -10,18 +10,16 @@ import { DataService } from '../data.service';
 })
 export class AddDataComponent implements OnInit {
 
-  public isUpdate = true;
   public id;
-  public fullData;
-  public updateData;
-  
-  data = dataArray;
-  userModel = new AddUser("shsh", "naga@gm.com", 7417417415, "selam", 741741);
+  public isUpdate = true;
+  public updateData = [];
+
+  userModel = new AddUser(null, "vishal", "soni", null, "7417417415", "Rajkot", "vms@gmail.com", 360003);
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private dataService: DataService) {}
+    private dataService: DataService) { }
 
   ngOnInit() {
     this.editData();
@@ -34,21 +32,18 @@ export class AddDataComponent implements OnInit {
 
     if (this.id) {
       this.isUpdate = true;
-      this.fullData = this.dataService.getData();
-      // this.dataService.getUsers().subscribe(data => {this.fullData = data;});
-      this.userModel = this.fullData[this.id];
+      this.dataService.getUserByID(this.id).subscribe(data => { this.userModel = data; });
     }
     else {
       this.isUpdate = false;
     }
   }
 
-  onSubmit(userForm) {
+  onSubmit() {
     if (this.isUpdate) {
-      this.fullData[this.id] = userForm.value;
+      this.dataService.updateUserByID(this.userModel, this.id).subscribe(data => { });
     } else {
-      // this.dataService.CreateUser(userForm.value).subscribe(data =>{});
-      this.data.push(userForm.value);
+      this.dataService.createUsersData(this.userModel).subscribe(data => { });
     }
     this.router.navigate(['showData']);
   }
