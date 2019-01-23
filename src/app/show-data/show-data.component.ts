@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
+import { ExcelService } from '../excel.service';
 
 @Component({
     selector: 'app-show-data',
@@ -11,7 +12,17 @@ export class ShowDataComponent implements OnInit {
 
     public updateSelected;
     public parentData = [];
-    constructor(private dataService: DataService, private router: Router) { }
+    public deleteID;
+    public fullName;
+    public countries = [];
+    public states = [];
+    public cities = [];
+
+    constructor(private dataService: DataService, private router: Router, private excelService: ExcelService) {
+        this.countries = this.dataService.getCountries();
+        this.states = this.dataService.getStates();
+        this.cities = this.dataService.getCity();
+    }
 
     key: string = 'First Name';
     reverse: boolean = false;
@@ -23,17 +34,39 @@ export class ShowDataComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.dataService.getUsersData().subscribe(data => { this.parentData = data; });
+        this.dataService.getUsersData().subscribe(data => {
+            this.parentData = data;
+            console.log(this.parentData);
+        });
+    }
+
+    getCountry(i) {
+        return this.countries[i - 1].name;
+    }
+
+    getState(j) {
+        return this.states[j - 1].name;
+    }
+
+    getCity(k) {
+        return this.cities[k - 1].name;
+    }
+
+    setDeleteID(deleteID, fname, lname){
+        this.deleteID = deleteID;
+        this.fullName = fname + ' ' + lname;
     }
 
     onUpdate(i) {
-        console.log(this.parentData);
         this.router.navigate(['editData', i]);
     }
 
-    onDelete(i) {
-        if(window.confirm("Are you sure ??")){
-            this.dataService.deleteUserByID(i).subscribe(data => { });
-        }
+    onDelete() {
+        this.dataService.deleteUserByID(this.deleteID).subscribe(data => { });
+    }
+
+    exportAsXLSX(): void {
+        this.excelService.exportAsExcelFile(this.parentData, 'sample');
     }
 }
+

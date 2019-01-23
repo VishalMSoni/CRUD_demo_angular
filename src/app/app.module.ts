@@ -10,13 +10,16 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CustomMobileNumberDirective } from './custom-mobile-number.directive';
+import { customNumber } from '../app/show-data/customNumber';
+import { ExcelService } from './excel.service';
 
 @NgModule({
     declarations: [
         AppComponent,
         ShowDataComponent,
         AddDataComponent,
-        CustomMobileNumberDirective,
+        customNumber,
+        CustomMobileNumberDirective
     ],
     imports: [
         BrowserModule,
@@ -27,7 +30,7 @@ import { CustomMobileNumberDirective } from './custom-mobile-number.directive';
         NgxPaginationModule,
         FormsModule
     ],
-    providers: [],
+    providers: [ExcelService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,123 +1,39 @@
 {
   "jsonData": [
     {
-      "id": 4,
-      "fname": "aaaa",
-      "lname": "zzzzz",
-      "bdate": "2019-01-08",
-      "phoneNum": 7417417415,
-      "city": "Rajkot",
-      "email": "vms@gmail.com",
-      "pincode": 360003
-    },
-    {
-      "id": 5,
-      "fname": "nagarjunnnaaaaa",
-      "lname": "soni",
-      "bdate": "2019-01-27",
-      "phoneNum": 7417417415,
-      "city": "Rajkot",
-      "email": "vms@gmail.com",
-      "pincode": 360003
-    },
-    {
-      "id": 6,
-      "fname": "vishal sssss",
-      "lname": "soni",
-      "bdate": "2019-01-04",
-      "phoneNum": 7417417415,
-      "city": "Rajkot",
-      "email": "vms@gmail.com",
-      "pincode": 360003
-    },
-    {
-      "id": 7,
-      "fname": "qqqqqqqqq",
-      "lname": "soni",
-      "bdate": "2019-01-13",
-      "phoneNum": 7417417415,
-      "city": "Rajkot",
-      "email": "vms@gmail.com",
-      "pincode": 360003
-    },
-    {
-      "id": 8,
-      "fname": "elize",
-      "lname": "soni",
-      "bdate": "2019-01-05",
-      "phoneNum": 7417417415,
-      "city": "Rajkot",
-      "email": "vms@gmail.com",
-      "pincode": 360003
-    },
-    {
-      "id": 9,
+      "id": 1,
       "fname": "vishal",
       "lname": "soni",
-      "bdate": "2019-01-12",
-      "phoneNum": 9429707486,
-      "city": "Rajkot",
+      "bdate": "2019-01-03",
+      "phoneNum": "7417417415",
+      "selectedCountry": "1",
+      "selectedState": "1",
+      "selectedCity": "2",
       "email": "vms@gmail.com",
       "pincode": 360003
     },
     {
-      "id": 10,
+      "id": 2,
+      "fname": "vishal",
+      "lname": "soni",
+      "bdate": "2019-01-11",
+      "phoneNum": "7417417415",
+      "selectedCountry": "1",
+      "selectedState": "1",
+      "selectedCity": "1",
+      "email": "vms@gmail.com",
+      "pincode": 360003
+    },
+    {
+      "id": 3,
       "fname": "vishal",
       "lname": "soni",
       "bdate": "2019-01-13",
-      "phoneNum": null,
-      "city": "Rajkot",
-      "email": "vms@gmail.com",
-      "pincode": 360003
-    },
-    {
-      "id": 11,
-      "fname": "vishal",
-      "lname": "soni",
-      "bdate": "2019-01-13",
-      "phoneNum": 7417417415,
-      "city": "Rajkot",
-      "email": "vms@gmail.com",
-      "pincode": 360003
-    },
-    {
-      "id": 12,
-      "fname": "vishal",
-      "lname": "soni",
-      "bdate": "2019-01-06",
-      "phoneNum": "9429707486",
-      "city": "Rajkot",
-      "email": "vms@gmail.com",
-      "pincode": 360003
-    },
-    {
-      "id": 13,
-      "fname": "vishal",
-      "lname": "soni",
-      "bdate": "2019-01-19",
-      "phoneNum": 7417417415,
-      "city": "Rajkot",
-      "email": "vms@gmail.com",
-      "pincode": 360003
-    },
-    {
-      "id": 14,
-      "fname": "vishal",
-      "lname": "soni",
-      "bdate": "2019-01-19",
-      "phoneNum": 7417417415,
-      "city": "Rajkot",
-      "email": "vms@gmail.com",
-      "pincode": 360003
-    },
-    {
-      "id": 15,
-      "fname": "qaqaqaqa",
-      "lname": "soni",
-      "bdate": "2019-01-18",
-      "phoneNum": "9429707486",
-      "city": "Rajkot",
-      "email": "vms@gmail.com",
+      "phoneNum": "7417417415",
+      "selectedCountry": "1",
+      "selectedState": "1",
+      "selectedCity": "2",
+      "email": "vms@g.sdsd",
       "pincode": 360003
     }
   ]

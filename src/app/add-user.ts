@@ -5,9 +5,10 @@ export class AddUser {
         public lname: string,        
         public bdate: Date,        
         public phoneNum: string,
-        public city: string,
+        public selectedCountry: number,
+        public selectedState: number,
+        public selectedCity: number,
         public email: string,
         public pincode: number
     ) { }    
 }
-export const dataArray = [{}];
